@@ -1,0 +1,13 @@
+package org.example.config;
+
+import jakarta.validation.Valid;
+import org.example.entity.EnterpriseSurvey;
+import org.springframework.batch.item.ItemProcessor;
+import org.springframework.lang.NonNull;
+
+public class EnterpriseSurveyProcessor implements ItemProcessor<EnterpriseSurvey, EnterpriseSurvey> {
+    @Override
+    public EnterpriseSurvey process(@Valid @NonNull EnterpriseSurvey survey) throws Exception {
+        return survey;
+    }
+}
