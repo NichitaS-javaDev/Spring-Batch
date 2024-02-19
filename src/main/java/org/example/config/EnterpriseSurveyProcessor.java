@@ -7,7 +7,7 @@ import org.springframework.lang.NonNull;
 
 public class EnterpriseSurveyProcessor implements ItemProcessor<EnterpriseSurvey, EnterpriseSurvey> {
     @Override
-    public EnterpriseSurvey process(@Valid @NonNull EnterpriseSurvey survey) throws Exception {
+    public EnterpriseSurvey process(@Valid @NonNull EnterpriseSurvey survey) {
         return survey;
     }
 }

@@ -118,7 +118,7 @@ public class SpringBatchConfig {
 
     @Bean
     public Job runJob() {
-        return new JobBuilder("importCustomers", jobRepository)
+        return new JobBuilder("importSurveys", jobRepository)
                 .flow(processFileStep())
                 .next(moveFileStep())
                 .end()

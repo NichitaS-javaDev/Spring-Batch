@@ -14,7 +14,7 @@ public class EnterpriseSurvey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
-    @Pattern(regexp = "\\b(?:1[0-9]{3}|[2-9][0-9]{3})\\b")
+    @Pattern(regexp = "\\b(19\\d{2}|2\\d{3})\\b")
     private Integer year;
     @NotBlank
     private String industryAggregation;
