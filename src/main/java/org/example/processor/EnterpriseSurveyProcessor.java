@@ -1,4 +1,4 @@
-package org.example.config;
+package org.example.processor;
 
 import jakarta.validation.Valid;
 import org.example.entity.EnterpriseSurvey;

@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/jobs")
 public class JobController {
-    private final Job job;
+    private final Job importSurveysJob;
+    private final Job exportSurveysJob;
     private final JobLauncher jobLauncher;
 
     @Autowired
-    public JobController(JobLauncher jobLauncher, Job job) {
+    public JobController(JobLauncher jobLauncher, Job importSurveysJob, Job exportSurveysJob) {
         this.jobLauncher = jobLauncher;
-        this.job = job;
+        this.importSurveysJob = importSurveysJob;
+        this.exportSurveysJob = exportSurveysJob;
     }
 
     @PostMapping("/importEnterpriseSurveys")
@@ -26,7 +28,18 @@ public class JobController {
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("startAt", System.currentTimeMillis()).toJobParameters();
         try {
-            jobLauncher.run(job, jobParameters);
+            jobLauncher.run(importSurveysJob, jobParameters);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @PostMapping("/exportEnterpriseSurveys")
+    public void importUsersToCsv() {
+        JobParameters jobParameters = new JobParametersBuilder()
+                .addLong("startAt", System.currentTimeMillis()).toJobParameters();
+        try {
+            jobLauncher.run(exportSurveysJob, jobParameters);
         } catch (Exception e) {
             e.printStackTrace();
         }
